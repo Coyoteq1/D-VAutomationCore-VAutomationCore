@@ -2,6 +2,7 @@ using System;
 using HarmonyLib;
 using ProjectM;
 using Unity.Entities;
+using VAutomationCore.Core.Events;
 using VAutomationCore.Core.Logging;
 
 namespace VAutomationCore.Patches
@@ -30,6 +31,7 @@ namespace VAutomationCore.Patches
                 {
                     _hasStarted = true;
                     OnServerStarted?.Invoke(__instance, EventArgs.Empty);
+                    TypedEventBus.Publish(new ServerStartedEvent());
                     CoreLogger.LogInfo("Server bootstrap started");
                 }
 
@@ -38,6 +40,7 @@ namespace VAutomationCore.Patches
                 {
                     _isReady = true;
                     OnWorldReady?.Invoke(__instance, EventArgs.Empty);
+                    TypedEventBus.Publish(new WorldReadyEvent());
                     CoreLogger.LogInfo("World is ready - all systems initialized");
                 }
             }
@@ -72,6 +75,7 @@ namespace VAutomationCore.Patches
             try
             {
                 OnWorldInitialized?.Invoke(__instance, EventArgs.Empty);
+                TypedEventBus.Publish(new WorldInitializedEvent());
                 CoreLogger.LogInfo("WorldBootstrapSystem.Initialize completed");
             }
             catch (Exception ex)

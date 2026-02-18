@@ -2,6 +2,7 @@ using System;
 using HarmonyLib;
 using ProjectM;
 using Unity.Entities;
+using VAutomationCore.Core.Events;
 using VAutomationCore.Core.Logging;
 
 namespace VAutomationCore.Patches
@@ -39,6 +40,14 @@ namespace VAutomationCore.Patches
                 };
 
                 OnBuffInitialized?.Invoke(__instance, args);
+                TypedEventBus.Publish(new BuffInitializedEvent
+                {
+                    Owner = args.Owner,
+                    Source = args.Source,
+                    BuffGuid = args.BuffGuid,
+                    Duration = args.Duration,
+                    IsExtended = args.IsExtended
+                });
             }
             catch (Exception ex)
             {
@@ -75,6 +84,11 @@ namespace VAutomationCore.Patches
                 };
 
                 OnBuffDestroyed?.Invoke(__instance, args);
+                TypedEventBus.Publish(new BuffDestroyedEvent
+                {
+                    Owner = args.Owner,
+                    BuffGuid = args.BuffGuid
+                });
             }
             catch (Exception ex)
             {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.Entities;
+using VAutomationCore.Core.Events;
 using VAutomationCore.Models;
 
 namespace VAutomationCore.Services
@@ -50,6 +51,11 @@ namespace VAutomationCore.Services
             }
 
             InvokeSafely(OnPlayerEntered, player, normalizedZoneId);
+            TypedEventBus.Publish(new PlayerEnteredZoneEvent
+            {
+                Player = player,
+                ZoneId = normalizedZoneId
+            });
         }
 
         /// <summary>
@@ -76,6 +82,11 @@ namespace VAutomationCore.Services
             }
 
             InvokeSafely(OnPlayerExited, player, normalizedZoneId);
+            TypedEventBus.Publish(new PlayerExitedZoneEvent
+            {
+                Player = player,
+                ZoneId = normalizedZoneId
+            });
         }
 
         /// <summary>
