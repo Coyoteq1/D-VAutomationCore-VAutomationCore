@@ -4,6 +4,7 @@ using ProjectM;
 using Unity.Collections;
 using Unity.Entities;
 using VAutomationCore.Core;
+using VAutomationCore.Core.Events;
 using VAutomationCore.Core.Logging;
 
 namespace VAutomationCore.Patches
@@ -52,6 +53,14 @@ namespace VAutomationCore.Patches
                     };
 
                     OnDeathEvent?.Invoke(__instance, args);
+                    TypedEventBus.Publish(new DeathOccurredEvent
+                    {
+                        Killer = args.Killer,
+                        Victim = args.Victim,
+                        Reason = args.Reason,
+                        IsPlayerKill = args.IsPlayerKill,
+                        IsVBlood = args.IsVBlood
+                    });
                 }
             }
             catch (Exception ex)

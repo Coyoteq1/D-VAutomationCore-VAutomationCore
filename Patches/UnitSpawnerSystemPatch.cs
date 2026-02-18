@@ -4,6 +4,7 @@ using ProjectM;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
+using VAutomationCore.Core.Events;
 using VAutomationCore.Core.Logging;
 
 namespace VAutomationCore.Patches
@@ -58,6 +59,15 @@ namespace VAutomationCore.Patches
                             };
 
                             OnUnitSpawned?.Invoke(__instance, args);
+                            TypedEventBus.Publish(new UnitSpawnedEvent
+                            {
+                                Spawner = args.Spawner,
+                                SpawnedUnit = args.SpawnedUnit,
+                                PrefabGuid = args.PrefabGuid,
+                                Position = args.Position,
+                                Level = args.Level,
+                                IsNightSpawn = args.IsNightSpawn
+                            });
                         }
                     }
                 }
@@ -113,6 +123,13 @@ namespace VAutomationCore.Patches
                     };
 
                     OnSpawnTravelBuffApplied?.Invoke(__instance, args);
+                    TypedEventBus.Publish(new SpawnTravelBuffAppliedEvent
+                    {
+                        Unit = args.Unit,
+                        PrefabGuid = args.PrefabGuid,
+                        Position = args.Position,
+                        IsMoving = args.IsMoving
+                    });
                 }
 
                 entities.Dispose();
