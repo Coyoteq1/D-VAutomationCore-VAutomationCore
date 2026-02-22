@@ -1,20 +1,20 @@
-# VAutoTraps Plugin
+# VAutoTraps
 
-## Purpose
-- Trap/chest spawn rules and trap-zone gameplay behavior.
+VAutoTraps is the trap automation module for V Rising servers, built with `VAutomationCore`.
 
-## Primary Entry Points
-- `Plugin.cs`: plugin bootstrap.
-- `Commands/Core/TrapCommands.cs`: command surface.
-- `Services/Traps/*`: trap runtime behavior.
-- `Services/Rules/*`: spawn constraints and policy.
+## Quick Commands
+```powershell
+# Build
+dotnet build VAutoTraps/VAutoTraps.csproj -c Release --nologo
 
-## Key Config
-- `Configuration/killstreak_trap_config.toml`
+# Deploy (copies DLL to configured BepInEx plugins path)
+dotnet build VAutoTraps/VAutoTraps.csproj -c Release --nologo --no-restore /p:DeployToServer=true
+```
 
-## Dependencies
-- `VAutomationCore` (shared contracts/services).
+## Community
+- Join the V Rising Mods Discord: [https://discord.gg/68JZU5zaq7](https://discord.gg/68JZU5zaq7)
+- Need ownership support? Visit: [https://discord.gg/58bTRRxf8r](https://discord.gg/58bTRRxf8r)
 
-## Ownership Rule
-- Keep trap systems local to `VAutoTraps/*`.
-- Avoid direct plugin-to-plugin references.
+## Contributors
+Special thanks to our contributors:
+1. coyoteq1

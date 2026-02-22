@@ -5,12 +5,17 @@ It is live in production and actively used by multiple live modules built on thi
 
 ## NuGet
 - Package: `VAutomationCore`
-- Version: `1.0.0`
-- NuGet page: `https://www.nuget.org/packages/VAutomationCore/1.0.0`
+- Latest package page: `https://www.nuget.org/packages/VAutomationCore`
+- Latest prerelease page: `https://www.nuget.org/packages/VAutomationCore/1.0.1-beta.1`
 
-Install:
+Install latest stable:
 ```xml
 <PackageReference Include="VAutomationCore" Version="1.0.0" />
+```
+
+Install specific prerelease:
+```xml
+<PackageReference Include="VAutomationCore" Version="1.0.1-beta.1" />
 ```
 
 ## Focus
@@ -54,6 +59,9 @@ public override void Load()
 ## Community
 - Join the V Rising Mods Discord: [https://discord.gg/68JZU5zaq7]
 - Need ownership support? Visit: [https://discord.gg/58bTRRxf8]
+
+## Auth
+- coyoteq1
 
 
 ## Core API Surface

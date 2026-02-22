@@ -1,20 +1,20 @@
-# CycleBorn Plugin
+# CycleBorn
 
-## Purpose
-- Lifecycle progression systems, arena lifecycle handlers, unlock/respawn/score flows.
+CycleBorn is the lifecycle/automation module built on `VAutomationCore` for V Rising servers.
 
-## Primary Entry Points
-- `Plugin.cs`: plugin bootstrap and lifecycle orchestration.
-- `Commands/*`: lifecycle command surface.
-- `Services/Lifecycle/*`: lifecycle handlers, patches, and orchestration.
+## Quick Commands
+```powershell
+# Build
+dotnet build CycleBorn/Vlifecycle.csproj -c Release --nologo
 
-## Key Config
-- `Configuration/pvp_item.json`
-- `Configuration/pvp_item.toml`
+# Deploy (copies DLL to configured BepInEx plugins path)
+dotnet build CycleBorn/Vlifecycle.csproj -c Release --nologo --no-restore /p:DeployToServer=true
+```
 
-## Dependencies
-- `VAutomationCore` (shared contracts/services).
+## Community
+- Join the V Rising Mods Discord: [https://discord.gg/68JZU5zaq7](https://discord.gg/68JZU5zaq7)
+- Need ownership support? Visit: [https://discord.gg/58bTRRxf8r](https://discord.gg/58bTRRxf8r)
 
-## Ownership Rule
-- Keep lifecycle-specific features in `CycleBorn/*`.
-- Promote only stable/shared contracts into `Core/*`.
+## Contributors
+Special thanks to our contributors:
+1. coyoteq1

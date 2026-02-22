@@ -1,14 +1,14 @@
-# VAutoannounce
+# Swapkits
 
-VAutoannounce provides automated announcement workflows for V Rising servers.
+Swapkits provides inventory/slot and swap-related gameplay utilities for V Rising servers.
 
 ## Quick Commands
 ```powershell
 # Build
-dotnet build VAutoannounce/VAutoannounce.csproj -c Release --nologo
+dotnet build Swapkits/Swapkits.csproj -c Release --nologo
 
 # Deploy (copies DLL to configured BepInEx plugins path)
-dotnet build VAutoannounce/VAutoannounce.csproj -c Release --nologo --no-restore /p:DeployToServer=true
+dotnet build Swapkits/Swapkits.csproj -c Release --nologo --no-restore /p:DeployToServer=true
 ```
 
 ## Community

@@ -1,14 +1,11 @@
-# Bluelock
+# VAuto.Extensions
 
-Bluelock is the zone/gameplay module built on top of `VAutomationCore` for V Rising servers.
+VAuto.Extensions contains shared extension helpers used across VAutomation modules.
 
 ## Quick Commands
 ```powershell
 # Build
-dotnet build Bluelock/VAutoZone.csproj -c Release --nologo
-
-# Deploy (copies DLL to configured BepInEx plugins path)
-dotnet build Bluelock/VAutoZone.csproj -c Release --nologo --no-restore /p:DeployToServer=true
+dotnet build VAuto.Extensions/VAuto.Extensions.csproj -c Release --nologo
 ```
 
 ## Community
